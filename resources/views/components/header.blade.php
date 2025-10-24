@@ -73,8 +73,7 @@
 	<section class="greeting center">
 		<div class="greeting__text">
 						<h1 class="greeting__head">
-							Привет! <br />
-							Я — middle Fullstack-разработчик!
+                            {!! $text !!}
 						</h1>
 						<p class="greeting__article">
 							Добро пожаловать на мой сайт! Я только начинаю свой путь в

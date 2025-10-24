@@ -6,17 +6,12 @@
 
 		{{-- <link rel="stylesheet" href="./resources/sass/reset.css" />
 		<link rel="stylesheet" href="./resources/sass/app.css" /> --}}
-	
-		<link rel="stylesheet" href="{{ asset('build/assets/reset-CMMCmBt6.css') }}">
-		<link rel="stylesheet" href="{{ asset('build/assets/app-ugCQpvuP.css') }}">
-        <script src="{{ asset('build/assets/app-C9LWlAh9.js') }}" defer></script>
-
-
 		
+		@vite(['resources/sass/reset.sass', 'resources/sass/app.sass', 'resources/js/app.js'])
 		<title>@yield('title-block')</title>
 	</head>
 	<body>
-		@include('include.header')
+		@include('include.mainheader')
         @yield('content')
     	@include('include.footer')
     </body>
