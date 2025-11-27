@@ -12,6 +12,7 @@
 	</head>
 	<body>
 		@include('include.mainheader')
+		@include('include.massages')
         @yield('content')
     	@include('include.footer')
     </body>

@@ -1,0 +1,193 @@
+// resources/sass/components/_feedback-form.scss
+
+// Переменные
+$primary-color: #3490dc 
+$primary-hover: #2779bd 
+$error-color: #e3342f 
+$success-color: #38c172 
+$text-color: #333 
+$border-color: #dae1e7 
+$background-color: #f8fafc 
+$shadow: 0 2px 4px rgba(0, 0, 0, 0.1) 
+
+// Миксины
+@mixin transition($property: all, $duration: 0.3s, $timing: ease)  
+  transition: $property $duration $timing 
+ 
+
+@mixin focus-shadow  
+  box-shadow: 0 0 0 3px rgba($primary-color, 0.1) 
+ 
+
+// Стили формы
+.feedback-form  
+  max-width: 600px 
+  margin: 0 auto 
+  padding: 2rem 
+  background: white 
+  border-radius: 8px 
+  box-shadow: $shadow 
+
+  &__title  
+    text-align: center 
+    color: $text-color 
+    margin-bottom: 2rem 
+    font-size: 1.5rem 
+    font-weight: 600 
+   
+
+  &__form  
+    display: flex 
+    flex-direction: column 
+    gap: 1.5rem 
+   
+
+  &__submit  
+    background: $primary-color 
+    color: white 
+    border: none 
+    padding: 0.75rem 2rem 
+    border-radius: 4px 
+    font-size: 1rem 
+    font-weight: 600 
+    cursor: pointer 
+    @include transition 
+
+    &:hover  
+      background: $primary-hover 
+      transform: translateY(-1px) 
+     
+
+    &:active  
+      transform: translateY(0) 
+     
+
+    &:focus  
+      outline: none 
+      @include focus-shadow 
+     
+
+    &:disabled  
+      background: lighten($primary-color, 20%) 
+      cursor: not-allowed 
+      transform: none 
+     
+   
+ 
+
+// Группы формы
+.form-group  
+  display: flex 
+  flex-direction: column 
+  gap: 0.5rem 
+
+  &__label  
+    font-weight: 600 
+    color: $text-color 
+    font-size: 0.9rem 
+
+    // &::after  
+    //   content: ' *' 
+    //   color: $error-color 
+     
+   
+
+  &__input,
+  &__textarea  
+    padding: 0.75rem 
+    border: 2px solid $border-color 
+    border-radius: 4px 
+    font-size: 1rem 
+    @include transition 
+
+    &:focus  
+      outline: none 
+      border-color: $primary-color 
+      @include focus-shadow 
+     
+
+    // &--error  
+    //   border-color: $error-color 
+
+    //   &:focus  
+    //     border-color: $error-color 
+    //     box-shadow: 0 0 0 3px rgba($error-color, 0.1) 
+       
+     
+   
+
+  &__textarea  
+    resize: vertical 
+    min-height: 120px 
+    font-family: inherit 
+   
+
+  &__error  
+    color: $error-color 
+    font-size: 0.8rem 
+    font-weight: 500 
+    margin-top: 0.25rem 
+   
+ 
+
+// Адаптивность
+@media (max-width: 768px)  
+  .feedback-form  
+    margin: 1rem 
+    padding: 1.5rem 
+
+    &__title  
+      font-size: 1.25rem 
+     
+   
+
+  .form-group  
+    &__input,
+    &__textarea  
+      padding: 0.625rem 
+     
+   
+ 
+
+// Анимации
+@keyframes slideIn  
+  from  
+    opacity: 0 
+    transform: translateY(-10px) 
+   
+  to  
+    opacity: 1 
+    transform: translateY(0) 
+   
+ 
+
+.feedback-form  
+  animation: slideIn 0.5s ease 
+ 
+
+// // Состояния валидации
+// .form-group  
+//   &__input:valid,
+//   &__textarea:valid  
+//     border-color: $success-color 
+   
+
+//   &__input:invalid:not(:focus):not(:placeholder-shown),
+//   &__textarea:invalid:not(:focus):not(:placeholder-shown)  
+//     border-color: $error-color 
+   
+.massagess
+  &--success
+    background: $success-color
+    color: $text-color
+    border: 1px solid $primary-hover
+    border-radius: 6px
+    padding: 12px 16px
+    margin: 16px 0
+    display: flex
+    align-items: center
+    gap: 8px
+    
+    &::before
+      content: '✅'
+      font-size: 14px

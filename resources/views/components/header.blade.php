@@ -35,19 +35,19 @@
 							/>
 						</svg>
 		</label>
-		<a href="/" class="navigation__link">Главная</a>
-		<a href="/works" class="navigation__link">Мои работы</a>
-		<a href="/contact" class="navigation__link">Контакты</a>
-
+		<a href="{{ route('home') }}" class="navigation__link">Главная</a>
+		<a href="{{ route('works') }}" class="navigation__link">Мои работы</a>
+		<a href="{{ route('contact.form') }}" class="navigation__link">Контакты</a>
+		<a href="{{ route('contact.all') }}" class="navigation__link">Сообщения</a>
 		<nav class="nav nav__hidden">
 						<h2 class="nav__heading">МЕНЮ</h2>
 						<ul class="nav__ul">
-							<li><a class="nav__link" href="/">Главная</a></li>
+							<li><a class="nav__link" href="{{ route('home') }}">Главная</a></li>
 							<li>
-								<a class="nav__link" href="/works">Мои работы</a>
+								<a class="nav__link" href="{{ route('works') }}">Мои работы</a>
 							</li>
 							<li>
-								<a class="nav__link" href="/contact">Контакты</a>
+								<a class="nav__link" href="{{ route('contact.form') }}">Контакты</a>
 							</li>
 						</ul>
 						<div class="close">
@@ -70,6 +70,7 @@
 						</div>
 		</nav>
 	</nav>
+    @if(Request::is('/'))
 	<section class="greeting center">
 		<div class="greeting__text">
 						<h1 class="greeting__head">
@@ -91,7 +92,7 @@
 		<div class="greeting__img-back">
 						<img
 							class="greeting__img"
-							src="img/main_profile.jpg"
+							src="{{ asset('img/main_profile.jpg') }}"
 							alt="Сафиуллин Руслан Фаилович"
 						/>
 						<svg
@@ -102,7 +103,7 @@
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink"
-						>
+						    >
 							<desc>Created with Pixso.</desc>
 							<defs />
 							<circle
@@ -116,4 +117,5 @@
 						</svg>
 		</div>
 	</section>
+    @endif
 </header>
